@@ -28,7 +28,7 @@ function parseAlphaVantage(rawData, dataKey) {
   let parsedData = []
   let keys = Object.keys(data)
   for (let i = keys.length - 1; i >= 0; i--) {
-    let time = Date.parse(new Date(keys[i]))
+    let time = new Date(keys[i])
     let value = +data[keys[i]]['4. close']
     parsedData.push([time, value])
   }

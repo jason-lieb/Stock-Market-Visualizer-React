@@ -21,45 +21,12 @@ async function init() {
 ////////////////////////////////////////////////// Functions to Handle Inputs /////////////////////////////////////////////////////////////////////
 
 function handlePage(e) {
-  if (global.selectedPage === 'Government Data') {
-    global.selectedTimePeriod = '200-y'
-  } else if (global.selectedTimePeriod === '200-y') {
-    global.selectedTimePeriod = '3-m'
-  }
-  changeUIforPage(e.target)
   clearChart()
   createWelcome()
 }
 
 function handleTime(e) {
   if (global.data !== undefined) updateChart()
-}
-
-function handleDefault(e) {
-  if (e.target.dataset.value === undefined) return
-  let input = e.target.dataset.value
-  handleData(input)
-}
-
-function handleSearch(e) {
-  if (e.key !== 'Enter') return
-  let search = searchInput.value
-  searchInput.value = ''
-  handleData(inputValidation(search))
-}
-
-function inputValidation(input) {
-  input = input.toString().toUpperCase()
-}
-
-function handleSelect(e) {
-  let fromCurrency = e.target.parentElement.previousElementSibling.children[1]
-  let toCurrency = e.target.parentElement.previousElementSibling.previousElementSibling.children[1]
-  if (fromCurrency.value === '' || toCurrency.value === '') {
-    addAlert('Please Choose Two Currencies')
-    return
-  }
-  handleData(`${toCurrency.value}/${fromCurrency.value}`)
 }
 
 async function handleData(input) {
@@ -77,33 +44,6 @@ async function handleData(input) {
 }
 
 ///////////////////////////////////////////////////////// UI Functions /////////////////////////////////////////////////////////////////////
-
-function changeUIforPage(page) {
-  if (page.dataset.value === 'Stocks') {
-    enable(threeMonBtn, sixMonBtn, ytd, oneYBtn, threeYBtn)
-    disable(allBtn)
-  }
-  if (page.dataset.value === 'Currency') {
-    enable(threeMonBtn, sixMonBtn, ytd, oneYBtn, threeYBtn)
-    disable(allBtn)
-  }
-  if (page.dataset.value === 'Government Data') {
-    disable(threeMonBtn, sixMonBtn, ytd, oneYBtn, threeYBtn)
-    enable(allBtn)
-  }
-}
-
-function enable(s_1, s_2, s_3, s_4, s_5) {
-  for (let i = 0; i < arguments.length; i++) {
-    arguments[i].classList.remove('disabled')
-  }
-}
-
-function disable(s_1, s_2, s_3, s_4, s_5) {
-  for (let i = 0; i < arguments.length; i++) {
-    arguments[i].classList.add('disabled')
-  }
-}
 
 function addLoadingSymbol() {
   chartContainer.innerHTML = `
