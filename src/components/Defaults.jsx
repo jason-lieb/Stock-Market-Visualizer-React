@@ -1,6 +1,6 @@
 import DefaultButton from './DefaultButton'
 
-export default function Defaults({ currentPage }) {
+export default function Defaults({ currentPage, setData }) {
   const defaultStocks = ['AMZN', 'AAPL', 'GOOG', 'META', 'NFLX', 'TSLA', 'NVDA', 'MSFT', 'DIS', 'GME']
   const defaultCurrencies = ['EUR/USD', 'GBP/USD', 'CAD/USD', 'AUD/USD', 'CNY/USD', 'JPY/USD']
   const defaultGovernment = ['GDP Annually', 'GDP Quarterly', 'PCE Annually', 'PCE Quarterly']
@@ -15,14 +15,15 @@ export default function Defaults({ currentPage }) {
         return 'US Government Statistics'
     }
   }
-  function renderSwitch(currentPage) {
+
+  function renderButtons(currentPage) {
     switch (currentPage) {
       case 'Stocks':
-        return defaultStocks.map((data, index) => <DefaultButton key={index} data={data} />)
+        return defaultStocks.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} />)
       case 'Currency':
-        return defaultCurrencies.map((data, index) => <DefaultButton key={index} data={data} />)
+        return defaultCurrencies.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} />)
       case 'Government Data':
-        return defaultGovernment.map((data, index) => <DefaultButton key={index} data={data} />)
+        return defaultGovernment.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} />)
     }
   }
   return (
@@ -32,7 +33,7 @@ export default function Defaults({ currentPage }) {
           {renderDefaultNames(currentPage)}
         </h5>
         <div className="d-grid gap-2" id="stock-card">
-          {renderSwitch(currentPage)}
+          {renderButtons(currentPage)}
         </div>
       </div>
     </div>

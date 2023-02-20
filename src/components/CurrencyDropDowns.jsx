@@ -1,7 +1,20 @@
+import { useState } from 'react'
+import { getData } from '../utils/data'
 import currencyOptions from '../assets/currencyOptions.json'
 import CurrencyOption from './CurrencyOption'
 
-export default function CurrencyDropDowns() {
+export default function CurrencyDropDowns({ setData }) {
+  const [currency1, setCurrency1] = useState('')
+  const [currency2, setCurrency2] = useState('')
+
+  async function handleSelect() {
+    if (currency1 === '' || currency2 === '') {
+      // addAlert('Please Choose Two Currencies');
+      return
+    }
+    setData(await getData(`${currency1}/${currency2}`, 'Currency'))
+  }
+
   return (
     <div id="currencyInputs" className="card default-card mb-5 text-uppercase">
       <div className="card-body">
@@ -9,7 +22,7 @@ export default function CurrencyDropDowns() {
           <label htmlFor="toCurrency" className="text-dark">
             To Currency
           </label>
-          <select name="toCurrency" className="form-select mb-2">
+          <select onChange={(e) => setCurrency1(e.target.value)} name="toCurrency" className="form-select mb-2">
             <option></option>
             {currencyOptions.map((option, index) => (
               <CurrencyOption key={index} option={option} />
@@ -20,7 +33,7 @@ export default function CurrencyDropDowns() {
           <label htmlFor="fromCurrency" className="text-dark">
             From Currency
           </label>
-          <select name="fromCurrency" className="form-select mb-2">
+          <select onChange={(e) => setCurrency2(e.target.value)} name="fromCurrency" className="form-select mb-2">
             <option></option>
             {currencyOptions.map((option, index) => (
               <CurrencyOption key={index} option={option} />
@@ -28,7 +41,7 @@ export default function CurrencyDropDowns() {
           </select>
         </div>
         <div className="d-grid">
-          <button id="loadCurrency" className="btn btn-dark rounded-1 clickHighlight text-uppercase">
+          <button onClick={handleSelect} id="loadCurrency" className="btn btn-dark rounded-1 clickHighlight text-uppercase">
             Load Data
           </button>
         </div>

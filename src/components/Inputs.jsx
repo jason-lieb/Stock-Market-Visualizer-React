@@ -2,19 +2,19 @@ import SearchStock from './SearchStock'
 import CurrencyDropDowns from './CurrencyDropDowns'
 import Defaults from './Defaults'
 
-export default function Inputs({ currentPage }) {
+export default function Inputs({ currentPage, setData }) {
   function renderSwitch(currentPage) {
     switch (currentPage) {
       case 'Stocks':
-        return <SearchStock />
+        return <SearchStock setData={setData} />
       case 'Currency':
-        return <CurrencyDropDowns />
+        return <CurrencyDropDowns setData={setData} />
     }
   }
   return (
     <>
       {renderSwitch(currentPage)}
-      <Defaults currentPage={currentPage} />
+      <Defaults currentPage={currentPage} setData={setData} />
     </>
   )
 }
