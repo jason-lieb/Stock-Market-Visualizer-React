@@ -1,6 +1,6 @@
-# Stock Market Visualizer
+# Stock Market Visualizer (React)
 
-A data visualizer React SPA that shows historical data for popular stocks, currency exchange rates, and US government data
+A data visualization React SPA that shows historical data for popular stocks, currency exchange rates, and US government data
 
 ## Deployed App
 
