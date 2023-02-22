@@ -1,7 +1,5 @@
 // Global Variables
 let global = {
-  data: undefined,
-  dataInTimePeriodIndex: 0,
   stockHistory: undefined,
   currencyHistory: undefined,
   chartName: undefined,

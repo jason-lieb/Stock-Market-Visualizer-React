@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { getData } from '../utils/data'
-import currencyOptions from '../assets/currencyOptions.json'
-import CurrencyOption from './CurrencyOption'
+import { getData } from '../../utils/data'
+import currencyOptions from '../../assets/currencyOptions.json'
 
 export default function CurrencyDropDowns({ setData }) {
   const [currency1, setCurrency1] = useState('')
@@ -25,7 +24,9 @@ export default function CurrencyDropDowns({ setData }) {
           <select onChange={(e) => setCurrency1(e.target.value)} name="toCurrency" className="form-select mb-2">
             <option></option>
             {currencyOptions.map((option, index) => (
-              <CurrencyOption key={index} option={option} />
+              <option key={index} value={option}>
+                {option}
+              </option>
             ))}
           </select>
         </div>
@@ -36,7 +37,9 @@ export default function CurrencyDropDowns({ setData }) {
           <select onChange={(e) => setCurrency2(e.target.value)} name="fromCurrency" className="form-select mb-2">
             <option></option>
             {currencyOptions.map((option, index) => (
-              <CurrencyOption key={index} option={option} />
+              <option key={index} value={option}>
+                {option}
+              </option>
             ))}
           </select>
         </div>

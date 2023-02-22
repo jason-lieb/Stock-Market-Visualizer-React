@@ -1,4 +1,4 @@
-import { getData } from '../utils/data'
+import { getData } from '../../utils/data'
 
 export default function DefaultButton({ data, currentPage, setData }) {
   return (

@@ -1,16 +1,16 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 import ContinuousStocks from './components/ContinuousStocks'
-import Inputs from './components/Inputs'
-import Main from './components/Main'
-import Nav from './components/Nav'
+import Inputs from './components/inputs/Inputs'
+import Main from './components/main/Main'
+import Nav from './components/nav/Nav'
 
 function App() {
-  // google.charts.load('current', { packages: ['corechart'] })
-  const [page, setPage] = useState('Stocks')
   const [timePeriod, setTimePeriod] = useState('All')
   const [data, setData] = useState()
   const [dataIndex, setDataIndex] = useState(0)
+  const [page, setPage] = useState('Stocks')
+  const PageContext = createContext()
 
   return (
     <div className="App">
@@ -21,7 +21,7 @@ function App() {
           <Inputs currentPage={page} setData={setData} setTimePeriod={setTimePeriod} />
         </div>
         <div className="col-sm-7">
-          <Main timePeriod={timePeriod} setTimePeriod={setTimePeriod} data={data} dataIndex={dataIndex} setDataIndex={setDataIndex} page={page} />
+          <Main selectedTimePeriod={timePeriod} setTimePeriod={setTimePeriod} data={data} dataIndex={dataIndex} setDataIndex={setDataIndex} page={page} />
         </div>
       </main>
     </div>

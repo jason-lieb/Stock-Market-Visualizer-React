@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Chart } from 'react-google-charts'
-import { createChartOptions } from '../utils/chart'
-import { selectDataForTimeRange } from '../utils/data'
+import { createChartOptions } from '../../utils/chart'
+import { selectDataForTimeRange } from '../../utils/data'
 
 export default function DataChart({ data, dataIndex, setDataIndex, selectedTimePeriod, page }) {
   const [welcome, setWelcome] = useState(true)
