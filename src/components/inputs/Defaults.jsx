@@ -3,7 +3,12 @@ import DefaultButton from './DefaultButton'
 export default function Defaults({ currentPage, setData }) {
   const defaultStocks = ['AMZN', 'AAPL', 'GOOG', 'META', 'NFLX', 'TSLA', 'NVDA', 'MSFT', 'DIS', 'GME']
   const defaultCurrencies = ['EUR/USD', 'GBP/USD', 'CAD/USD', 'AUD/USD', 'CNY/USD', 'JPY/USD']
-  const defaultGovernment = ['GDP Annually', 'GDP Quarterly', 'PCE Annually', 'PCE Quarterly']
+  const defaultGovernment = [
+    ['GDP Annually', 'Gross Domestic Product'],
+    ['GDP Quarterly', 'Gross Domestic Product'],
+    ['PCE Annually', 'Personal Consumption Expenditures'],
+    ['PCE Quarterly', 'Personal Consumption Expenditures'],
+  ]
 
   function renderDefaultNames(currentPage) {
     switch (currentPage) {

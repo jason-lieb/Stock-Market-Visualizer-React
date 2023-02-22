@@ -5,26 +5,10 @@ let global = {
   chartName: undefined,
 }
 
-// Initialize
-init()
-
-//////////////////////////////////////////////// Initialization Functions /////////////////////////////////////////////////////////////////////
-
 async function init() {
   getHistory()
   createWelcome()
   getContinuousStocks()
-}
-
-////////////////////////////////////////////////// Functions to Handle Inputs /////////////////////////////////////////////////////////////////////
-
-function handlePage(e) {
-  clearChart()
-  createWelcome()
-}
-
-function handleTime(e) {
-  if (global.data !== undefined) updateChart()
 }
 
 async function handleData(input) {

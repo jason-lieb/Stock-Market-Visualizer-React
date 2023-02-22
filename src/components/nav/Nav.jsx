@@ -1,6 +1,6 @@
 import PageButton from './PageButton'
 
-export default function Nav({ selectedPage, setPage, setTimePeriod }) {
+export default function Nav({ selectedPage, setPage, setTimePeriod, setData }) {
   const pages = ['Stocks', 'Currency', 'Government Data']
   return (
     <nav className="navbar navbar-expand-md border-bottom border-dark border-opacity-50 bg-body-tertiary justify-content-between">
@@ -19,7 +19,7 @@ export default function Nav({ selectedPage, setPage, setTimePeriod }) {
       <div className="collapse navbar-collapse justify-content-end" id="navbar-toggler">
         <div id="navbar-btns" className="navbar-nav nav-pills ">
           {pages.map((page, index) => (
-            <PageButton key={index} index={index} page={page} setPage={setPage} selectedPage={selectedPage} setTimePeriod={setTimePeriod} />
+            <PageButton key={index} index={index} page={page} setPage={setPage} selectedPage={selectedPage} setTimePeriod={setTimePeriod} setData={setData} />
           ))}
         </div>
       </div>

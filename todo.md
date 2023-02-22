@@ -1,14 +1,33 @@
-React Router
-Environment Variables
-UseEffect => Component Lifecycle
+Questions:
 
+1.
+
+- Error when setting data to undefined on page change
 - Remove Listeners When Switching Page?
 
-Use Effect to set welcome whenever page changes
+2. Redux (/ Toolkit), Zustand, Context API (useContext and useReducer), prop drilling
 
-- On page change, 'setData()'
+3. Pass state into functions?
 
-Add Full Title to Default Gov't Buttons
+4. How to Implement React Router?
 
-Use Context API for Page
-Selected Time Period Changes Too Often for Context API?
+5. Recommended ways to implement CSS
+
+- CSS Modules
+- Styled Components
+- React Style
+- Styled JSX
+
+6. Environment Variables
+
+7. When to Use {this.props.children} vs just adding children in that component? (Only for HOC?)
+
+8. Suspense for loading icon?
+
+To Dos:
+
+Custom Hook for Fetching Data with Ability to Abort
+
+Minimize Prop Drilling By Passing JSX as Children
+
+- ie instead of <Inputs /> do <Inputs>whatever children</Inputs>

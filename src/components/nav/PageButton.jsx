@@ -1,4 +1,4 @@
-export default function PageButton({ page, index, selectedPage, setPage, setTimePeriod }) {
+export default function PageButton({ page, index, selectedPage, setPage, setTimePeriod, setData }) {
   const nonselected = 'nav-link text-dark ms-2 px-2 my-1 mx-md-2 border border-5 invisibleBorder'
   const selected = 'nav-link text-dark ms-2 px-2 my-1 mx-md-2 border border-5 border-success border-opacity-50'
   return (
@@ -8,6 +8,7 @@ export default function PageButton({ page, index, selectedPage, setPage, setTime
       onClick={() => {
         setPage(page)
         if (page === 'Government Data') setTimePeriod('All')
+        // setData()
       }}
       className={page === selectedPage ? selected : nonselected}
     >
