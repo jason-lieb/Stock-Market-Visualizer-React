@@ -1,10 +1,10 @@
-# Stock Market Visualizer (React)
+# Stock Visualizer
 
-A data visualization React SPA that shows historical data for popular stocks, currency exchange rates, and US government data
+My stock market visualizer group project from bootcamp, but revamped with React and other npm libraries. A data visualization SPA that shows historical data for popular stocks, currency exchange rates, and US government data
 
 ## Deployed App
 
-[Deployed App](https://jason-lieb.github.io/stock-market-visualizer-react/)
+[Deployed App](https://jason-lieb.github.io/stock-visualizer/)
 
 ## Installation
 
