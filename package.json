@@ -1,13 +1,15 @@
 {
   "name": "stock-market-visualizer-react",
-  "private": true,
+  "homepage": "https://jason-lieb.github.io/stock-market-visualizer-react/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prettier": "npx prettier --config .prettierrc.yaml --ignore-path .prettierignore --write ."
+    "prettier": "npx prettier --config .prettierrc.yaml --ignore-path .prettierignore --write .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -19,6 +21,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.4",
     "vite": "^4.1.0"
   }
