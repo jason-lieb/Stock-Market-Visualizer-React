@@ -71,3 +71,7 @@ export function selectDataForTimeRange(data, selectedTimePeriod, page) {
   if (!allData) newDataIndex += 1
   return newDataIndex
 }
+
+// async function getContinuousStocks() {
+
+// }

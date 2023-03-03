@@ -1,7 +1,7 @@
 // const POLYGON_APIKEY = 'TTNbgrcWIJyP1tavyIdjxgTywo6ixljm'
 const ALPHA_VANTAGE_APIKEY = '0BGSBFE3M96OL784'
 const BEA_APIKEY = 'D34BBF56-E892-4E7A-9427-83869BD3A09D'
-// const FINNHUB_APIKEY = 'cf2ap1aad3idqn4q4nlgcf2ap1aad3idqn4q4nm0'
+const FINNHUB_APIKEY = 'cf2ap1aad3idqn4q4nlgcf2ap1aad3idqn4q4nm0'
 
 export async function getAlphaVantageStock(ticker) {
   let response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${ticker}&outputsize=full&apikey=${ALPHA_VANTAGE_APIKEY}`)
@@ -65,6 +65,21 @@ function parseBEA(rawData) {
       break //only take line1 which is the real GDP data
     }
     parsedData.push([data_temp[i].TimePeriod, Number(data_temp[i].DataValue)])
+  }
+  return parsedData
+}
+
+export async function getFinnhub(ticker) {
+  let response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${FINNHUB_APIKEY}`)
+  if (response.status === 429) return '429 Error'
+  let data = await response.json()
+  return parseFinnhub(ticker, data)
+}
+
+function parseFinnhub(ticker, data) {
+  let parsedData = {
+    ticker,
+    incPercent: Math.round(data.dp * 100) / 100,
   }
   return parsedData
 }

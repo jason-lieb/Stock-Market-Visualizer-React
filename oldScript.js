@@ -161,21 +161,6 @@ function clearHistory() {
 
 //////////////////////////////////////////////////////// Finnhub API Functions /////////////////////////////////////////////////////////////////////
 
-async function getFinnhub(ticker) {
-  let response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${finnhub_APIKEY}`)
-  if (response.status === 429) return '429 Error'
-  let data = await response.json()
-  return data
-}
-
-function parseFinnhub(ticker, data) {
-  let parsedData = {
-    ticker,
-    incPercent: Math.round(data.dp * 100) / 100,
-  }
-  return parsedData
-}
-
 async function getContinuousStocks() {
   let error429 = false
   let continuousStocks = ['AAPL', 'MSFT', 'AMZN', 'TSLA', 'GOOGL', 'GOOG', 'BRK.B', 'UNH', 'JNJ', 'XOM', 'JPM', 'META', 'V', 'PG', 'NVDA']

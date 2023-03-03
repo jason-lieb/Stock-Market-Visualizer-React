@@ -1,6 +1,6 @@
 # Stock Visualizer
 
-My stock market visualizer group project from bootcamp, but revamped with React and other npm libraries. A data visualization SPA that shows historical data for popular stocks, currency exchange rates, and US government data
+My Stock Market Visualizer group project from bootcamp, but revamped with React and other npm libraries. A data visualization SPA that shows historical data for popular stocks, currency exchange rates, and US government data
 
 ## Deployed App
 
