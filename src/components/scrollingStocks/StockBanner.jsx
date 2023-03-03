@@ -1,21 +1,27 @@
 import ContinuousStock from './ContinuousStock'
 import Error429 from './Error429'
 // import { getFinnhub } from '../../utils/api'
-// import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function StockBanner() {
   const continuousStocks = ['AAPL', 'MSFT', 'AMZN', 'TSLA', 'GOOGL', 'GOOG', 'BRK.B', 'UNH', 'JNJ', 'XOM', 'JPM', 'META', 'V', 'PG', 'NVDA']
   // let error = false
-  let stockData
+  const [stockData, setStockData] = useState()
+  // const [timer, setTimer] = useState(1)
+
   // useEffect(() => {
   //   const controller = new AbortController()
   //   fetch('/src/assets/testContinuousStockData.json', { signal: controller.signal })
   //     .then((res) => res.json())
-  //     .then((data) => (stockData = data))
+  //     .then((data) => {
+  //       console.log('test')
+  //       setStockData(data)
+  //     })
   //   return () => {
   //     controller.abort()
   //   }
-  // })
+  // }, [timer])
+  // setInterval((timer) => setTimer(timer++), 500)
   // async function getTestData() {
   //   let stockData = await fetch('../../assets/testContinuousStockData.json')
   //   console.log('stockData', stockData)

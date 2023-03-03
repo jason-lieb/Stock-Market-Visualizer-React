@@ -1,8 +1,9 @@
 export default function ContinuousStock({ stock, stockData }) {
   let data
-  if (stockData) {
-    stockData.forEach((entry) => entry.ticker === stock && (data = entry.incPercent))
-  }
+  // console.log(stockData)
+  // if (stockData) {
+  //   stockData.forEach((entry) => entry.ticker === stock && (data = entry.incPercent))
+  // }
   let color, chevron
   if (data > 0) {
     color = 'text-success'
