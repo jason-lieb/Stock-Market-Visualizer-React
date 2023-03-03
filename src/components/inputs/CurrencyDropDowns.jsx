@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { getData } from '../../utils/data'
 import currencyOptions from '../../assets/currencyOptions.json'
 
-export default function CurrencyDropDowns({ setData }) {
+export default function CurrencyDropDowns({ setData, setChartName }) {
   const [currency1, setCurrency1] = useState('')
   const [currency2, setCurrency2] = useState('')
 
@@ -11,7 +11,7 @@ export default function CurrencyDropDowns({ setData }) {
       // addAlert('Please Choose Two Currencies');
       return
     }
-    setData(await getData(`${currency1}/${currency2}`, 'Currency'))
+    setData(await getData(`${currency1}/${currency2}`, 'Currency', setChartName))
   }
 
   return (

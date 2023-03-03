@@ -3,7 +3,7 @@ import { Chart } from 'react-google-charts'
 import { createChartOptions } from '../../utils/chart'
 import { selectDataForTimeRange } from '../../utils/data'
 
-export default function DataChart({ data, dataIndex, setDataIndex, selectedTimePeriod, page }) {
+export default function DataChart({ data, dataIndex, setDataIndex, selectedTimePeriod, chartName, page }) {
   useEffect(() => {
     !!data && setDataIndex(selectDataForTimeRange(data, selectedTimePeriod, page))
   }, [data, selectedTimePeriod, page, setDataIndex])
@@ -19,6 +19,7 @@ export default function DataChart({ data, dataIndex, setDataIndex, selectedTimeP
 
   function renderChart() {
     const options = createChartOptions(page)
+    options.title = chartName
     const displayData = data.slice(dataIndex)
     displayData.unshift(['Time', 'Value'])
     return <Chart chartType="LineChart" data={displayData} width="100%" height="100%" options={options} />

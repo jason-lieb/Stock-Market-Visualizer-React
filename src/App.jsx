@@ -10,6 +10,7 @@ function App() {
   const [data, setData] = useState()
   const [dataIndex, setDataIndex] = useState(0)
   const [page, setPage] = useState('Stocks')
+  const [chartName, setChartName] = useState()
 
   return (
     <div className="App">
@@ -17,10 +18,10 @@ function App() {
       <StockBanner />
       <main className="container-fluid mt-3 row justify-content-around">
         <div className="col-sm-3 d-flex flex-column" id="search_default">
-          <Inputs currentPage={page} setData={setData} setTimePeriod={setTimePeriod} />
+          <Inputs currentPage={page} setData={setData} setTimePeriod={setTimePeriod} setChartName={setChartName} />
         </div>
         <div className="col-sm-7">
-          <Main selectedTimePeriod={timePeriod} setTimePeriod={setTimePeriod} data={data} dataIndex={dataIndex} setDataIndex={setDataIndex} page={page} />
+          <Main selectedTimePeriod={timePeriod} setTimePeriod={setTimePeriod} data={data} dataIndex={dataIndex} setDataIndex={setDataIndex} chartName={chartName} page={page} />
         </div>
       </main>
     </div>

@@ -1,6 +1,6 @@
 import { getData } from '../../utils/data'
 
-export default function SearchStock({ setData }) {
+export default function SearchStock({ setData, setChartName }) {
   function inputValidation(input) {
     return input.toString().trim().toUpperCase()
   }
@@ -9,7 +9,7 @@ export default function SearchStock({ setData }) {
     if (e.key !== 'Enter') return
     const data = inputValidation(e.target.value)
     e.target.value = ''
-    setData(await getData(data, 'Stocks'))
+    setData(await getData(data, 'Stocks', setChartName))
   }
 
   return <input onKeyDown={submithandler} id="search" className="form-control mb-5" type="search" placeholder="Search stock tickers here" aria-label="Stock search bar input" />

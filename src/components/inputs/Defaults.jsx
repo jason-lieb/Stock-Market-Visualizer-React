@@ -1,6 +1,6 @@
 import DefaultButton from './DefaultButton'
 
-export default function Defaults({ currentPage, setData }) {
+export default function Defaults({ currentPage, setData, setChartName }) {
   const defaultStocks = ['AMZN', 'AAPL', 'GOOG', 'META', 'NFLX', 'TSLA', 'NVDA', 'MSFT', 'DIS', 'GME']
   const defaultCurrencies = ['EUR/USD', 'GBP/USD', 'CAD/USD', 'AUD/USD', 'CNY/USD', 'JPY/USD']
   const defaultGovernment = [
@@ -24,11 +24,11 @@ export default function Defaults({ currentPage, setData }) {
   function renderButtons(currentPage) {
     switch (currentPage) {
       case 'Stocks':
-        return defaultStocks.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} />)
+        return defaultStocks.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} setChartName={setChartName} />)
       case 'Currency':
-        return defaultCurrencies.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} />)
+        return defaultCurrencies.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} setChartName={setChartName} />)
       case 'Government Data':
-        return defaultGovernment.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} />)
+        return defaultGovernment.map((data, index) => <DefaultButton key={index} data={data} currentPage={currentPage} setData={setData} setChartName={setChartName} />)
     }
   }
   return (

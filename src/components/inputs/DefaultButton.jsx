@@ -1,6 +1,6 @@
 import { getData } from '../../utils/data'
 
-export default function DefaultButton({ data, currentPage, setData }) {
+export default function DefaultButton({ data, currentPage, setData, setChartName }) {
   function renderButtonContent() {
     if (currentPage === 'Government Data') {
       return (
@@ -15,7 +15,7 @@ export default function DefaultButton({ data, currentPage, setData }) {
     }
   }
   return (
-    <button onClick={async () => setData(await getData(data, currentPage))} className="btn btn-dark rounded-1 clickHighlight">
+    <button onClick={async () => setData(await getData(data, currentPage, setChartName))} className="btn btn-dark rounded-1 clickHighlight">
       {renderButtonContent()}
     </button>
   )

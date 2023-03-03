@@ -1,19 +1,22 @@
 import { getAlphaVantageStock, getAlphaVantageForex, getBEA } from './api'
 
-export async function getData(input, page) {
+export async function getData(input, page, setChartName) {
   let newData
   switch (page) {
     case 'Stocks':
+      setChartName(`${input} Stock Price ($)`)
       newData = await getAlphaVantageStock(input)
       return newData
     case 'Currency':
+      setChartName(`${input} Currency Exchange Rate`)
       const toCurrency = input.split('/')[0]
       const fromCurrency = input.split('/')[1]
       newData = await getAlphaVantageForex(toCurrency, fromCurrency)
       return newData
     case 'Government Data':
+      const chartName = input[0].split(' ')[1] === 'Quarterly' ? input[0] : input[0].substr(0, input[0].length - 2)
+      setChartName(`${chartName} Growth %`)
       newData = await getBEA(input)
-      // global.selectedTimePeriod = '200-y' //200 to show all.
       return newData
   }
 }
