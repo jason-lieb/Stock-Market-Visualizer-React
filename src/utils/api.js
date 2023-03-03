@@ -42,8 +42,8 @@ export async function getBEA(input) {
     'GDP Quarterly': 't10101',
     'PCE Quarterly': 't20301',
   }
-  const frequency = input.endsWith('quarter') ? 'q' : 'a'
-  const url = `https://apps.bea.gov/api/data/?UserID=${BEA_APIKEY}&method=getDATA&datasetname=nipa&TABLENAME=${MacroDataTableName[input]}&FREQUENCY=${frequency}&YEAR=ALL`
+  const frequency = input[0].endsWith('Quarterly') ? 'q' : 'a'
+  const url = `https://apps.bea.gov/api/data/?UserID=${BEA_APIKEY}&method=getDATA&datasetname=nipa&TABLENAME=${MacroDataTableName[input[0]]}&FREQUENCY=${frequency}&YEAR=ALL`
   const response = await fetch(url)
   const data = await response.json()
   return handleErrorBEA(data) ? parseBEA(data) : false

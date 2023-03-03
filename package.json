@@ -1,6 +1,6 @@
 {
   "name": "stock-market-visualizer-react",
-  "homepage": "https://jason-lieb.github.io/stock-market-visualizer-react/",
+  "homepage": "https://jason-lieb.github.io/stock-visualizer/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

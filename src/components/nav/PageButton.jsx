@@ -8,7 +8,7 @@ export default function PageButton({ page, index, selectedPage, setPage, setTime
       onClick={() => {
         setPage(page)
         if (page === 'Government Data') setTimePeriod('All')
-        // setData()
+        setData()
       }}
       className={page === selectedPage ? selected : nonselected}
     >
