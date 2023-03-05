@@ -71,7 +71,7 @@ function parseBEA(rawData) {
 
 export async function getFinnhub(ticker) {
   let response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${FINNHUB_APIKEY}`)
-  if (response.status === 429) return '429 Error'
+  if (response.status === 429) return
   let data = await response.json()
   return parseFinnhub(ticker, data)
 }
