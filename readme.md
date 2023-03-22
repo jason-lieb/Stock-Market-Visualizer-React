@@ -8,11 +8,19 @@ My Stock Market Visualizer group project from bootcamp, but revamped with React 
 
 ## Installation
 
-N/A
+To install necessary dependencies, run the following command:
+
+```
+npm i
+```
 
 ## Usage
 
-N/A
+To run locally, run the following command:
+
+```
+npm run dev
+```
 
 ## License
 
