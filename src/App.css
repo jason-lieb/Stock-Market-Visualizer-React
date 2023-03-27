@@ -10,6 +10,10 @@
   --font3: 'Open Sans', sans-serif;
 }
 
+.title {
+  background-color: var(--background-color);
+}
+
 body {
   background: var(--background-color);
 }
